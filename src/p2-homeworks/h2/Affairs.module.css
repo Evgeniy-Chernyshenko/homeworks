@@ -2,23 +2,12 @@
   color: #ffffff;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 6px;
-  padding: 20px;
   margin: 20px;
   width: fit-content;
   font-weight: 400;
-}
-
-.affairs > div {
-  display: table-row;
-  word-break: break-word;
-  border-collapse: separate;
-  border-spacing: 10px;
-}
-
-.affairs > div > div {
-  display: table-cell;
+  padding: 20px;
 }
 
 .affairs > button {
-  margin-top: 20px;
+  margin-right: 10px;
 }

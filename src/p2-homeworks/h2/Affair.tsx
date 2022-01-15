@@ -9,14 +9,16 @@ type AffairPropsType = {
 
 function Affair(props: AffairPropsType) {
   return (
-    <div>
+    <div className={styles.affair}>
       <div>{props.affair.name}</div>
       <div className={`${styles.priority} ${styles[props.affair.priority]}`}>
         [{props.affair.priority}]
       </div>
-      <button onClick={() => props.deleteAffairCallback(props.affair._id)}>
-        X
-      </button>
+      <div>
+        <button onClick={() => props.deleteAffairCallback(props.affair._id)}>
+          X
+        </button>
+      </div>
     </div>
   );
 }

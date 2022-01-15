@@ -1,6 +1,6 @@
 .priority {
   font-weight: 300;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 .low {
@@ -13,4 +13,14 @@
 
 .high {
   color: #ee0505;
+}
+
+.affair {
+  display: table-row;
+  word-break: break-word;
+}
+
+.affair > div {
+  display: table-cell;
+  padding-bottom: 10px;
 }
