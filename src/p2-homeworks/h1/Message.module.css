@@ -16,7 +16,7 @@
 .textContainer:before {
   width: 15px;
   height: 15px;
-  content: '';
+  content: "";
   background: radial-gradient(
     circle at 0 0,
     rgba(0, 0, 0, 0) 15px,
@@ -29,7 +29,7 @@
 
 .text {
   display: inline;
-  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .avatar {

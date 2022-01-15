@@ -1,0 +1,16 @@
+.priority {
+  font-weight: 300;
+  padding: 0 20px;
+}
+
+.low {
+  color: #20c920;
+}
+
+.middle {
+  color: #dede10;
+}
+
+.high {
+  color: #ee0505;
+}
