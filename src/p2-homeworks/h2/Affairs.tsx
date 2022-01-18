@@ -7,6 +7,7 @@ type AffairsPropsType = {
   data: AffairType[];
   setFilter: (filter: FilterType) => void;
   deleteAffairCallback: deleteAffairCallbackType;
+  filter: FilterType;
 };
 
 function Affairs(props: AffairsPropsType) {
@@ -18,14 +19,38 @@ function Affairs(props: AffairsPropsType) {
     />
   ));
 
+  const getFilterButtonClass = (filter: FilterType) => {
+    return props.filter === filter ? styles.activeButton : undefined;
+  };
+
   return (
     <div className={styles.affairs}>
       {mappedAffairs}
 
-      <button onClick={() => props.setFilter("all")}>All</button>
-      <button onClick={() => props.setFilter("high")}>High</button>
-      <button onClick={() => props.setFilter("middle")}>Middle</button>
-      <button onClick={() => props.setFilter("low")}>Low</button>
+      <button
+        onClick={() => props.setFilter("all")}
+        className={getFilterButtonClass("all")}
+      >
+        All
+      </button>
+      <button
+        onClick={() => props.setFilter("high")}
+        className={getFilterButtonClass("high")}
+      >
+        High
+      </button>
+      <button
+        onClick={() => props.setFilter("middle")}
+        className={getFilterButtonClass("middle")}
+      >
+        Middle
+      </button>
+      <button
+        onClick={() => props.setFilter("low")}
+        className={getFilterButtonClass("low")}
+      >
+        Low
+      </button>
     </div>
   );
 }

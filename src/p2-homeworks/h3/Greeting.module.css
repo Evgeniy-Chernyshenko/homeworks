@@ -1,7 +1,19 @@
-.someClass {
-
+.greeting {
+  background: rgba(255, 255, 255, 0.8);
+  width: fit-content;
+  padding: 20px;
+  border-radius: 6px;
+  margin: 20px;
 }
 
 .error {
-    border: 1px solid red;
+  border-color: red;
+}
+
+input {
+  outline: none;
+}
+
+.errorText {
+  color: red;
 }
