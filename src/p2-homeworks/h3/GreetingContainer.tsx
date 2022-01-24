@@ -1,6 +1,6 @@
-import React, { ChangeEvent, KeyboardEvent, MouseEvent, useState } from "react";
-import Greeting from "./Greeting";
-import { UserType } from "./HW3";
+import React, { ChangeEvent, KeyboardEvent, MouseEvent, useState } from 'react';
+import Greeting from './Greeting';
+import { UserType } from './HW3';
 
 type GreetingContainerPropsType = {
   users: UserType[];
@@ -13,19 +13,19 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
   addUserCallback,
 }) => {
   // деструктуризация пропсов
-  const [name, setName] = useState<string>("");
-  const [error, setError] = useState<string>("");
+  const [name, setName] = useState<string>('');
+  const [error, setError] = useState<string>('');
 
   const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => {
     const trimmedName = e.currentTarget.value.trim();
 
     setName(trimmedName);
 
-    !!trimmedName ? setError("") : setError("Name is required");
+    !!trimmedName ? setError('') : setError('Name is required');
   };
 
   const inputKeyPressCallback = (e: KeyboardEvent<HTMLInputElement>) => {
-    e.key === "Enter" && addUser();
+    e.key === 'Enter' && addUser();
   };
 
   const addUser = () => {

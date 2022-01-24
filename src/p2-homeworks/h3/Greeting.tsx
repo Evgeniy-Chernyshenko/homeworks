@@ -1,5 +1,5 @@
-import React, { ChangeEvent, KeyboardEvent } from "react";
-import s from "./Greeting.module.css";
+import React, { ChangeEvent, KeyboardEvent } from 'react';
+import s from './Greeting.module.css';
 
 type GreetingPropsType = {
   name: string;
@@ -23,12 +23,13 @@ const Greeting: React.FC<GreetingPropsType> = (
         onChange={setNameCallback}
         onKeyPress={inputKeyPressCallback}
         className={inputClass}
+        onBlur={setNameCallback}
       />
       <button onClick={addUser} disabled={!name}>
         add
-      </button>{" "}
+      </button>{' '}
       <span>{totalUsers}</span>
-      {error && <div className={s.errorText}>{error}</div>}
+      <div className={s.errorText}>{error}</div>
     </div>
   );
 };
