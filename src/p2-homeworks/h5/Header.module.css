@@ -1,0 +1,70 @@
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  box-shadow: 0 2px 8px 0 rgba(34, 60, 80, 0.2);
+}
+
+.panel {
+  height: 60px;
+  background: #282c34;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 0 10px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.panel button {
+  cursor: pointer;
+  font-size: 1.3em;
+  width: 35px;
+  height: 35px;
+  line-height: 100%;
+}
+
+.logo {
+  font-weight: 500;
+  color: #61dafb;
+  font-size: 2em;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.menu {
+  background: #383e46;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  max-height: 0;
+}
+
+.menu li {
+  list-style: none;
+  text-align: center;
+}
+
+.menu a {
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  line-height: 300%;
+  font-size: 1em;
+  text-transform: uppercase;
+  display: block;
+}
+
+.menu a:hover {
+  background-color: #61dafb;
+  color: #000000;
+}
+
+.menu a.active {
+  text-decoration: underline;
+}
+
+.show {
+  max-height: 1000px;
+  transition: 1.5s;
+}
