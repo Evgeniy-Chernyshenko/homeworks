@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 function JuniorPlus() {
-  return <div>Junior+ page</div>;
+  return <>Junior+ page</>;
 }
 
 export default JuniorPlus;

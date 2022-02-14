@@ -1,0 +1,15 @@
+.superEditableSpan {
+  cursor: pointer;
+  color: #ffffff;
+  border-bottom: 1px dashed #ffffff;
+  display: inline-block;
+}
+
+.superEditableSpan:hover {
+  border-bottom: 1px dashed hsla(0, 0%, 100%, 0);
+}
+
+.superEditableSpan::before {
+  content: '✎';
+  padding-right: 5px;
+}
