@@ -1,48 +1,67 @@
-import React, {useState} from 'react'
-import {homeWorkReducer} from './bll/homeWorkReducer'
-import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
+import { useState } from 'react';
+import { homeWorkReducer } from './bll/homeWorkReducer';
+import SuperButton from '../h4/common/c2-SuperButton/SuperButton';
 
-// export type UserType =
+type PersonType = { _id: number; name: string; age: number };
+
+export type PeopleType = PersonType[];
 
 const initialPeople = [
-    {_id: 0, name: 'Кот', age: 3},
-    {_id: 1, name: 'Александр', age: 66},
-    {_id: 2, name: 'Коля', age: 16},
-    {_id: 3, name: 'Виктор', age: 44},
-    {_id: 4, name: 'Дмитрий', age: 40},
-    {_id: 5, name: 'Ирина', age: 55},
-]
+  { _id: 0, name: 'Кот', age: 3 },
+  { _id: 1, name: 'Александр', age: 66 },
+  { _id: 2, name: 'Коля', age: 16 },
+  { _id: 3, name: 'Виктор', age: 44 },
+  { _id: 4, name: 'Дмитрий', age: 40 },
+  { _id: 5, name: 'Ирина', age: 55 },
+];
 
 function HW8() {
-    const [people, setPeople] = useState<any>(initialPeople) // need to fix any
+  const [people, setPeople] = useState<PeopleType>(initialPeople);
 
-    // need to fix any
-    const finalPeople = people.map((p: any) => (
-        <div key={p._id}>
-            some name, age
-        </div>
-    ))
+  const finalPeople = people.map((p: PersonType) => (
+    <tr key={p._id}>
+      <td width={200}>{p.name}</td>
+      <td>{p.age}</td>
+    </tr>
+  ));
 
-    const sortUp = () => setPeople(homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'}))
+  const sortUp = () =>
+    setPeople(homeWorkReducer(initialPeople, { type: 'sort', payload: 'up' }));
 
-    return (
-        <div>
-            <hr/>
-            homeworks 8
+  const sortDown = () =>
+    setPeople(
+      homeWorkReducer(initialPeople, { type: 'sort', payload: 'down' })
+    );
 
-            {/*should work (должно работать)*/}
-            {finalPeople}
+  const check18 = () =>
+    setPeople(homeWorkReducer(initialPeople, { type: 'check', payload: 18 }));
 
-            <div><SuperButton onClick={sortUp}>sort up</SuperButton></div>
-            <div>sort down</div>
-            check 18
-
-            <hr/>
-            {/*для личного творчества, могу проверить*/}
-            {/*<AlternativePeople/>*/}
-            <hr/>
-        </div>
-    )
+  return (
+    <div>
+      <hr />
+      homeworks 8{/*should work (должно работать)*/}
+      {finalPeople.length && (
+        <table>
+          <thead>
+            <tr>
+              <th style={{ textAlign: 'left' }}>name</th>
+              <th>age</th>
+            </tr>
+          </thead>
+          <tbody>{finalPeople}</tbody>
+        </table>
+      )}
+      <div>
+        <SuperButton onClick={sortUp}>sort up</SuperButton>
+        <SuperButton onClick={sortDown}>sort down</SuperButton>
+        <SuperButton onClick={check18}>check 18</SuperButton>
+      </div>
+      <hr />
+      {/*для личного творчества, могу проверить*/}
+      {/*<AlternativePeople/>*/}
+      <hr />
+    </div>
+  );
 }
 
-export default HW8
+export default HW8;
