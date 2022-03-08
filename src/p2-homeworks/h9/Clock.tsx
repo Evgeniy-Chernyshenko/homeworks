@@ -1,52 +1,47 @@
-import React, {useState} from 'react'
-import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
+import React, { useState } from 'react';
+import SuperButton from '../h4/common/c2-SuperButton/SuperButton';
 
 function Clock() {
-    const [timerId, setTimerId] = useState<number>(0)
-    const [date, setDate] = useState<Date>()
-    const [show, setShow] = useState<boolean>(false)
+  const [timerId, setTimerId] = useState<number>(0);
+  const [date, setDate] = useState<Date>(new Date());
+  const [show, setShow] = useState<boolean>(false);
 
-    const stop = () => {
-        // stop
-    }
-    const start = () => {
-        stop()
-        const id: number = window.setInterval(() => {
-            // setDate
-        }, 1000)
-        setTimerId(id)
-    }
+  const stop = () => {
+    clearInterval(timerId);
+  };
+  const start = () => {
+    stop();
+    const id = +setInterval(() => {
+      setDate(new Date());
+    }, 1000);
 
-    const onMouseEnter = () => {
-        // show
-    }
-    const onMouseLeave = () => {
-        // close
-    }
+    setTimerId(id);
+  };
 
-    const stringTime = 'Time' // fix with date
-    const stringDate = 'Date' // fix with date
+  const onMouseEnter = () => {
+    setShow(true);
+  };
+  const onMouseLeave = () => {
+    setShow(false);
+  };
 
-    return (
-        <div>
-            <div
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-            >
-                {stringTime}
-            </div>
+  const stringTime = date.toLocaleTimeString();
+  const stringDate = date.toLocaleDateString();
 
-            {show && (
-                <div>
-                    {stringDate}
-                </div>
-            )}
+  return (
+    <div>
+      <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        {stringTime}
+      </div>
 
-            <SuperButton onClick={start}>start</SuperButton>
-            <SuperButton onClick={stop}>stop</SuperButton>
+      {show && <div style={{ position: 'absolute' }}>{stringDate}</div>}
 
-        </div>
-    )
+      <SuperButton style={{ marginTop: '30px' }} onClick={start}>
+        start
+      </SuperButton>
+      <SuperButton onClick={stop}>stop</SuperButton>
+    </div>
+  );
 }
 
-export default Clock
+export default Clock;

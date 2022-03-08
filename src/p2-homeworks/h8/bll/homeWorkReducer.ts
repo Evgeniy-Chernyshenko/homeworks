@@ -18,9 +18,9 @@ export const homeWorkReducer = (
     case 'sort': {
       return [...state].sort((u1, u2) =>
         action.payload === 'up'
-          ? u1.age - u2.age
+          ? u1.name.localeCompare(u2.name)
           : action.payload === 'down'
-          ? u2.age - u1.age
+          ? u2.name.localeCompare(u1.name)
           : 0
       );
     }
