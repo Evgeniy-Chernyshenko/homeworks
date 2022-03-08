@@ -30,7 +30,11 @@ function Clock() {
 
   return (
     <div>
-      <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+      <div
+        style={{ display: 'table' }}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
         {stringTime}
       </div>
 
