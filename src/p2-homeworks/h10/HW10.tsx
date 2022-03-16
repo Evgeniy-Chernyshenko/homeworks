@@ -1,38 +1,52 @@
-import React from 'react'
-import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
+import SuperButton from '../h4/common/c2-SuperButton/SuperButton';
+import { Provider, useSelector, useDispatch } from 'react-redux';
+import store, { AppStoreType } from './bll/store';
+import { loadingAC } from './bll/loadingReducer';
+import spinnerImg from './assets/img/spinner.png';
 
 function HW10() {
-    // useSelector, useDispatch
-    const loading = false
+  const isLoading = useSelector<AppStoreType, boolean>(
+    (state) => state.loading.isLoading
+  );
 
-    const setLoading = () => {
-        // dispatch
-        // setTimeout
-        console.log('loading...')
-    };
+  const dispatch = useDispatch();
 
-    return (
+  const setLoading = () => {
+    console.log('loading...');
+
+    dispatch(loadingAC(true));
+
+    setTimeout(() => {
+      dispatch(loadingAC(false));
+    }, 1500);
+  };
+
+  return (
+    <div>
+      <hr />
+      homeworks 10
+      {/*should work (должно работать)*/}
+      {isLoading ? (
         <div>
-            <hr/>
-            homeworks 10
-
-            {/*should work (должно работать)*/}
-            {loading
-                ? (
-                    <div>крутилка...</div>
-                ) : (
-                    <div>
-                        <SuperButton onClick={setLoading}>set loading...</SuperButton>
-                    </div>
-                )
-            }
-
-            <hr/>
-            {/*для личного творчества, могу проверить*/}
-            {/*<Alternative/>*/}
-            <hr/>
+          <img src={spinnerImg} alt="Spinner" />
         </div>
-    )
+      ) : (
+        <div>
+          <SuperButton onClick={setLoading}>set loading...</SuperButton>
+        </div>
+      )}
+      <hr />
+      {/*для личного творчества, могу проверить*/}
+      {/*<Alternative/>*/}
+      <hr />
+    </div>
+  );
 }
 
-export default HW10
+const HW10WithRedux = () => (
+  <Provider store={store}>
+    <HW10 />
+  </Provider>
+);
+
+export default HW10WithRedux;
