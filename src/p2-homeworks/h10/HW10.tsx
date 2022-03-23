@@ -1,6 +1,6 @@
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton';
-import { Provider, useSelector, useDispatch } from 'react-redux';
-import store, { AppStoreType } from './bll/store';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppStoreType } from './bll/store';
 import { loadingAC } from './bll/loadingReducer';
 import spinnerImg from './assets/img/spinner.png';
 
@@ -12,8 +12,6 @@ function HW10() {
   const dispatch = useDispatch();
 
   const setLoading = () => {
-    console.log('loading...');
-
     dispatch(loadingAC(true));
 
     setTimeout(() => {
@@ -43,10 +41,6 @@ function HW10() {
   );
 }
 
-const HW10WithRedux = () => (
-  <Provider store={store}>
-    <HW10 />
-  </Provider>
-);
+const HW10WithRedux = () => <HW10 />;
 
 export default HW10WithRedux;
