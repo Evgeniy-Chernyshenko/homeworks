@@ -1,11 +1,11 @@
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton';
 import { useSelector, useDispatch } from 'react-redux';
-import { AppStoreType } from './bll/store';
+import { RootStoreType } from './bll/store';
 import { loadingAC } from './bll/loadingReducer';
 import spinnerImg from './assets/img/spinner.png';
 
 function HW10() {
-  const isLoading = useSelector<AppStoreType, boolean>(
+  const isLoading = useSelector<RootStoreType, boolean>(
     (state) => state.loading.isLoading
   );
 
