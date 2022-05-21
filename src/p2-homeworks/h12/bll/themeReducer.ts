@@ -1,4 +1,4 @@
-export type ThemeType = 'dark' | 'red' | 'some';
+export type ThemeType = 'default' | 'dark' | 'red' | 'some';
 
 export type ThemeStateType = {
   theme: ThemeType;
@@ -8,7 +8,7 @@ type ActionCreatorsType<T> = T extends { [key: string]: infer V } ? V : never;
 type ActionType = ReturnType<ActionCreatorsType<typeof themeAC>>;
 
 const initState: ThemeStateType = {
-  theme: 'dark',
+  theme: 'default',
 };
 
 export const themeReducer = (

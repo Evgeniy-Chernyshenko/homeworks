@@ -4,7 +4,7 @@ import SuperRadio from '../h7/common/c6-SuperRadio/SuperRadio';
 import { themeAC, ThemeStateType, ThemeType } from './bll/themeReducer';
 import s from './HW12.module.css';
 
-const themes = ['dark', 'red', 'some'];
+const themes = ['default', 'dark', 'red', 'some'];
 
 function HW12() {
   const { theme } = useSelector<RootStoreType, ThemeStateType>(
@@ -17,18 +17,22 @@ function HW12() {
   };
 
   return (
-    <div className={s[theme]}>
+    <div>
       <hr />
-      <span className={s[theme + '-text']}>homeworks 12</span>
+      <div>
+        <span>homeworks 12</span>
 
-      {/*should work (должно работать)*/}
-      {/*SuperSelect or SuperRadio*/}
+        {/*should work (должно работать)*/}
+        {/*SuperSelect or SuperRadio*/}
 
-      <SuperRadio
-        value={theme}
-        options={themes}
-        onChangeOption={onChangeOptionHandler}
-      />
+        <span>
+          <SuperRadio
+            value={theme}
+            options={themes}
+            onChangeOption={onChangeOptionHandler}
+          />
+        </span>
+      </div>
 
       <hr />
     </div>

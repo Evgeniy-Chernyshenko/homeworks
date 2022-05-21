@@ -3,10 +3,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootStoreType } from './bll/store';
 import { loadingAC } from './bll/loadingReducer';
 import spinnerImg from './assets/img/spinner.png';
+import s from '../h12/HW12.module.css';
+import { ThemeStateType } from '../h12/bll/themeReducer';
 
 function HW10() {
   const isLoading = useSelector<RootStoreType, boolean>(
     (state) => state.loading.isLoading
+  );
+  const { theme } = useSelector<RootStoreType, ThemeStateType>(
+    (state) => state.theme
   );
 
   const dispatch = useDispatch();
